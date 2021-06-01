@@ -1,0 +1,11 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: bcs1p
+spec:
+  serviceAccountName: tekton-triggers-sa
+  triggers:
+    - bindings:
+        - ref: apac-bc-squad-1-pipeline-triggerbinding
+      template:
+        name: apac-bc-squad-1-pipeline-triggertemplate

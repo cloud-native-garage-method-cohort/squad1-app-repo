@@ -1,0 +1,12 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: apac-bc-squad-1-pipeline-triggerbinding
+spec:
+  params:
+    - name: namespace
+      value: apac-bc-squad-1-pipeline
+    - name: gitrepositoryurl
+      value: $(body.repository.url)
+    - name: gitrepositoryname
+      value: $(body.repository.name)

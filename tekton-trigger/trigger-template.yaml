@@ -1,0 +1,27 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: apac-bc-squad-1-pipeline-triggertemplate
+spec:
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: apac-bc-squad-1-pipeline-run-
+      spec:
+        serviceAccountName: build-bot
+        pipelineRef:
+          name: apac-bc-squad-1-pipeline
+        workspaces:
+          - name: pipeline-shared-data
+            # persistentVolumeClaim:
+            #   claimName: 
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 1Gi
+
+
