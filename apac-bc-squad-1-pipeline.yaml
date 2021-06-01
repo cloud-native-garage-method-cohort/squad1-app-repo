@@ -13,8 +13,7 @@ spec:
     - name: image-repo
       type: string
       description: Docker image name
-      default: ... # NEED INPUT
-  tasks:
+      default: https://quay.io/user/poornimata
     - name: clone-repository
       params:
         - name: url
