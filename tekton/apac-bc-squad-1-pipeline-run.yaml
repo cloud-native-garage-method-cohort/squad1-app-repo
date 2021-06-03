@@ -8,12 +8,12 @@ spec:
     name: apac-bc-squad-1-pipeline
   workspaces:
     - name: pipeline-shared-data
-      # persistentVolumeClaim:
-      #   claimName: 
-      volumeClaimTemplate:
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 1Gi
+      persistentVolumeClaim:
+        claimName: squad1-pvc     
+      # volumeClaimTemplate:
+      #   spec:
+      #     accessModes:
+      #       - ReadWriteOnce
+      #     resources:
+      #       requests:
+      #         storage: 1Gi

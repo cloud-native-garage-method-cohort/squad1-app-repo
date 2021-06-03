@@ -13,7 +13,8 @@ spec:
     - name: image-repo
       type: string
       description: Docker image name
-      default: https://quay.io/user/poornimata/app
+      default: quay.io/user/poornimata/app
+  tasks:
     - name: clone-repository
       params:
         - name: url
@@ -34,6 +35,8 @@ spec:
         - name: ARGS
           value:
             - clean-install
+        - name: PATH_CONTEXT
+          value: nodejs-app/entity-view-app/ 
       runAfter:
         - clone-repository
     - name: run-tests
@@ -46,6 +49,8 @@ spec:
         - name: ARGS
           value:
             - test
+        - name: PATH_CONTEXT
+          value: nodejs-app/entity-view-app/
       runAfter:
         - install-dependencies
     - name: build-image
@@ -54,6 +59,8 @@ spec:
       params:
         - name: IMAGE
           value: "$(params.image-repo):$(tasks.clone-repository.results.commit)"
+        - name: CONTEXT
+          value: nodejs-app/entity-view-app
       taskRef:
         kind: Task
         name: buildah
@@ -77,16 +84,15 @@ spec:
         - kustomize-build
       params:
         - name: app-namespace
-          value: apac-bc-squad-1-pipeline
+          value: apac-bc-squad-1
         - name: app-name
-          value: apac-bc-squad-1-app
+          value: squad1-app
       taskRef:
         kind: Task
         name: test-deploy
       workspaces:
         - name: source
           workspace: pipeline-shared-data
-    - name: gitops
 
 
         
