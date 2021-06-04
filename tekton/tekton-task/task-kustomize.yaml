@@ -16,7 +16,6 @@ spec:
         #!/bin/sh
         cd source/k8s
         kustomize edit set image quay.io/poornimata/squad1-app=$(params.image-with-tag)
-        kustomize edit set image $(params.image-with-tag)
         kustomize build > manifests.yaml
         if [ -f manifests.yaml ]; then
           echo "manifests.yaml successfully generated"
