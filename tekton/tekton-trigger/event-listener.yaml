@@ -3,7 +3,7 @@ kind: EventListener
 metadata:
   name: bcs1p
 spec:
-  serviceAccountName: tekton-triggers-sa
+  serviceAccountName: pipeline
   triggers:
     - bindings:
         - ref: apac-bc-squad-1-pipeline-triggerbinding
