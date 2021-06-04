@@ -13,7 +13,7 @@ spec:
       protocol: TCP
       targetPort: 3000
   selector:
-    app.kubernetes.io/instance: apac-bc-squad-
+    app.kubernetes.io/instance: apac-bc-squad-1
     app.kubernetes.io/name: squad1-app
   sessionAffinity: None
   type: ClusterIP
