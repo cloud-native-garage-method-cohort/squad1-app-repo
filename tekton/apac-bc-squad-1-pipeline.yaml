@@ -13,7 +13,7 @@ spec:
     - name: image-repo
       type: string
       description: Docker image name
-      default: quay.io/user/poornimata/app
+      default: quay.io/poornimata/squad1-app
   tasks:
     - name: clone-repository
       params:
@@ -72,7 +72,7 @@ spec:
         - build-image
       params:
          - name: image-with-tag
-           value: "quay.io/user/poornimata/app=$(params.image-repo):$(tasks.clone-repository.results.commit)"
+           value: "$(params.image-repo):$(tasks.clone-repository.results.commit)"
       taskRef:
         kind: Task
         name: kustomize-build
