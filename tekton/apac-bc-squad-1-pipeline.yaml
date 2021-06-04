@@ -93,6 +93,20 @@ spec:
       workspaces:
         - name: source
           workspace: pipeline-shared-data
+    - name: gitops
+      runAfter:
+        - kustomize-build
+      taskRef:
+        kind: Task
+        name: gitops
+      params:
+        - name: app-name
+          value: squad1-app
+        - name: sha
+          value: "$(tasks.clone-repository.results.commit)"
+      workspaces:
+        - name: source
+          workspace: pipeline-shared-data
 
 
         
