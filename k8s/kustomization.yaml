@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: apac-bc-squad-1-pipeline
+namespace: apac-bc-squad-1
 commonAnnotations:
   enzo: "true"
 resources:
