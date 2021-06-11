@@ -79,20 +79,6 @@ spec:
       workspaces:
         - name: source
           workspace: pipeline-shared-data
-    - name: test-deploy
-      runAfter:
-        - kustomize-build
-      params:
-        - name: app-namespace
-          value: apac-bc-squad-1
-        - name: app-name
-          value: squad1-app
-      taskRef:
-        kind: Task
-        name: test-deploy
-      workspaces:
-        - name: source
-          workspace: pipeline-shared-data
     - name: gitops
       runAfter:
         - kustomize-build
