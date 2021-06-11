@@ -1,0 +1,2 @@
+    var couchimport = require('couchimport');
+    var opts = { delimiter: ",", url: "http://localhost:5984", database: "femtocell_data" };

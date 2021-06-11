@@ -1,16 +1,40 @@
 {
-  "name": "entity-view-app",
-  "version": "0.0.0",
-  "private": true,
+  "name": "airtelredirect",
+  "version": "0.0.1",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node server.js",
+    "test": "npm run unit && npm run eslint && npm run jshint",
+    "jshint": "jshint public",
+    "eslint": "eslint *.js lib test",
+    "unit": "istanbul cover _mocha test/unit -- -R spec"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
+    "@cloudant/cloudant": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cfenv": "^1.1.0",
+    "cloudant": "^1.10.0-NOTICE",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "loadtest": "^3.0.8",
+    "redis": "^2.8.0"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "istanbul": "^0.4.5",
+    "jshint": "^2.9.4",
+    "jsondiffpatch": "^0.3.10",
+    "mocha": "^5.2.0",
+    "prettier": "^1.13.3",
+    "sinon": "^5.0.10",
+    "sinon-test": "^2.2.0"
   }
 }
