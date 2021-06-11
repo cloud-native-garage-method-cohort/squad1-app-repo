@@ -39,20 +39,6 @@ spec:
           value: nodejs-app/entity-view-app/ 
       runAfter:
         - clone-repository
-    - name: run-tests
-      taskRef:
-        name: npm
-      workspaces:
-        - name: source
-          workspace: pipeline-shared-data
-      params:
-        - name: ARGS
-          value:
-            - test
-        - name: PATH_CONTEXT
-          value: nodejs-app/entity-view-app/
-      runAfter:
-        - install-dependencies
     - name: build-image
       runAfter:
         - run-tests
