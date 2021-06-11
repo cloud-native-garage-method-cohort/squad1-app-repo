@@ -40,8 +40,6 @@ spec:
       runAfter:
         - clone-repository
     - name: build-image
-      runAfter:
-        - run-tests
       params:
         - name: IMAGE
           value: "$(params.image-repo):$(tasks.clone-repository.results.commit)"
